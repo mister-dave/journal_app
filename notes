@@ -1,0 +1,122 @@
+# Journalling App
+## Guiding motivation:
+“This is all kind of coming from my experience with using the missionary planner. I felt like I got so much done in that time of my life and the following year when I maintained a planner and journal. So this whole app would be trying to digitally replicate the best features of those 2 tools”
+
+Home base: [Sign in · GitLab](https://sveth.cloudstyles.com)
+---
+Different uses for journalling:
+* therapy
+* meditation
+* productivity
+* journalling as a way of documenting performance/productivity is powerful, and there’s no great all-in-one program to do that. 
+
+---
+
+## Necessary Features: only include things that the app cannot function without
+
+~Front-End:~
+* Calendar view
+	* browse
+* Daily view
+	* Show goals
+		* long term
+		* 3 week
+		* 1 week
+		* daily
+	* text box for journal entry
+	* show tasks/todos
+* Nightly view
+	* review what got done in the day
+	* display same stuff as daily view	
+* Visualization view
+	* accomplishment over past ___ time periods
+* Support templates.
+	* customize and use a template that allows hotkey navigation such as tabs and enter.
+* Data persistence
+	* store data in database or local file system
+	* caching
+	* Searchable by machine’s file system where unencrypted
+	* download latest entries to machine from cloud DB
+		* need to resolve duplication/conflicting errors
+	* cloud search feature? (expensive service to run)
+* home page
+	* logged in
+	* logged out
+* settings
+
+~Back-End:~ make this first!
+* search
+* (“#”) tagging
+* ability to encrypt some or all of the entries as you please
+* authentication
+	* lost password
+	* registration
+* emails? a website suggested it
+	* [Creating a Web App from Scratch - Part 1 of 8: Basic Idea and Design | CSS-Tricks](https://css-tricks.com/app-from-scratch-1-design/)
+	* pin reset
+	* maintenance emails to me as developer
+	* 
+* API
+* store settings
+* database
+	* journal entries
+	* users
+
+
+---
+# Stack:
+It’s okay to do a rough prototype!
+
+containers definitely
+	orchestrate with kubernetes/rancher/Kontena (uses Ruby)
+maybe a paas? like the free heroku (dokku?)
+services
+node for js experience
+ruby for help from davin
+python cuz python
+DB: postgresql
+API: rest (graphql is cool but master basics first) (can both be used?)
+	* [How to wrap a REST API with GraphQL -  A 3-step tutorial | Prisma](https://www.prisma.io/blog/how-to-wrap-a-rest-api-with-graphql-8bf3fb17547d)
+Testing: 
+	* UI: selenium (am I writing in angular or react native)
+		* [Test Automation Tools for Testing ReactJS Applications](https://www.testingexcellence.com/reactjs-test-automation-tools/)
+	* Jenkins for builds
+	* something for containers
+	* something for API
+	* etc. testing for every aspect of backend
+
+
+
+---
+## Stretch goals:
+1. themes/colors/dark mode
+2. a planning component which can come later in development
+	1. it could even be a 'paid' add on
+3. provisions for key bindings
+	1. give option to support keyboard shortcuts for every single interaction if user desires and wants to set up further
+4. Quick-Switcher tool to search/invoke/install/io/etc.
+5. some kind of Hemingway/zen mode would be nice (hide everything except what you’re working on)
+6. receive snippets from Siri/Alexa or even emails if people wanna send little bite-sized entries
+7. The app should run multiple tabs
+8. customization via JSON pref file
+9. the ability to highlight some text and push to a Reminders app of your choice / push to Calendar or create an event
+10. Dev or Support website board showing which features are in-progress (with timeframes), planned, only requested/theorized, etc. (raindrop.io support site is good example)
+	1. “Request the next feature” for users
+11. Browser extensions
+12. (Inspirational) Quotes that scroll periodically
+13. users can email service and have entries appended to DB
+
+
+---
+OmniFocus integrations:
+[API for 3rd Party Development - OmniFocus - The Omni Group Forums](https://discourse.omnigroup.com/t/api-for-3rd-party-development/23838/8) - explains there’s no API but someone built a Ruby gem and the DB is sqlite on a local machine. 
+
+---
+
+
+
+---
+# Questions for Steve:
+* Views are called by controllers to “build” the HTML being served back to the client, right?
+* Does Node.js do any of its own API stuff or is the Express library used exclusively (or other 3rd party lib) to do web calls? and/or create routes?
+* 
